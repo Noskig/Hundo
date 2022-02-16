@@ -1,2 +1,2 @@
-# Hundo-Counting
-For Counting in JS
+# Hundo
+Counting in javascript
