@@ -4,8 +4,19 @@
     --secondary-color: #ff993b;
     --dark-color: #292929;
     --white-color:#dfeaf3;
+    --yellow-color:#dfd548;
 }
 
+.odd{
+    font-weight: 100;
+}
+
+.even{
+    font-weight: bold;
+}
+.hfunc{
+color:var(--yellow-color);
+}
 body{
     color: var(--dark-color);
 }

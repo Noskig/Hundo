@@ -45,7 +45,7 @@
                         <a class="nav-link active" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="">Git Repo</a><!--Link To git-->
+                        <a class="nav-link" target="_blank" href="https://github.com/Noskig/Hundo">Git Repo</a><!--Link To git-->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="">About</a><!--Link To portfolio-->
@@ -62,17 +62,78 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function HelloWorld(){
-                            alert("Hello World");
+                        //get the values from the Page
+                        //start or controller function 
+                        function getValues(){
+                            //get values from page
+                            let startValue = document.getElementById("startValue").value;
+                            let endValue = document.getElementById("endValue").value;
+                        
+                            //Validate input
+                            //parse into integers
+                            startValue = parseInt(startValue);
+                            endValue = parseInt(endValue);
+                        
+                        
+                            if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                                //we call generatNumbers
+                                let numbers = generateNumbers(startValue, endValue);
+                                displayNumbers(numbers);
+                            }
+                            else{
+                                alert("You must enter numbers");
+                            }
+                            
+                            
+                            //we call displayNumbers
+                        }
+                        
+                        //generate numbers form startValue to the endValue
+                        //logic function(s)
+                        function generateNumbers(sValue, eValue){
+                        
+                            let numbers = [];
+                        
+                            for (let i = sValue; i <= eValue; i++){
+                                numbers.push(i);
+                            }
+                            return numbers;
+                        }
+                        
+                        //Display the numbers and mark the even BOLD
+                        //display or view functions
+                        function displayNumbers(numbers){
+                        
+                            let templateRows = "";
+                        
+                            for (let index = 0; index < numbers.length; index++) {
+                        
+                                let className = "even";
+                        
+                                let number = numbers[index];
+                        
+                                if(number % 2 == 0){
+                                    className = "even";
+                                }
+                                else{
+                                    className="odd";
+                                }
+                        
+                                //This does not render correctly with Prism which shows the code
+                                templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+                            }
+                            document.getElementById("results").innerHTML = templateRows;
                         }
                     </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is structed in one function</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with an message</p>
+                    <h3>Functions</h3>
+                    <p>The code is structed in three function</p>
+                    <h5 class="hfunc">getValues</h5>
+
+                    <h5 class="hfunc">genereateNumbers</h5>
+                    <h5 class="hfunc">displayNumbers</h5>
                 </div>
             </div>
 
@@ -84,16 +145,16 @@
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col order-last order-lg-first text-light">
-                    <div><span class="text-muted">&copy;2022</span> Jonatan Hallqvist | jonatan.hallqvist@live.se</div>
+                    <div><span class="text-muted">&copy;2022</span> Jonatan Hallqvist</div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
                     <img src="img/White logo - no background.svg" alt="A R Logo" height="32">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row ">
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-youtube fa-2x" aria-hidden="true"></i></a></div>
+                        <div class="col social"><a href="https://www.linkedin.com/in/jonatan-hallqvist-287296180/" target="_blank"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i></a></div>
+                        <div class="col social"><a href="https://github.com/Noskig" target="_blank"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
+                        <!-- <div class="col social"><a href="#" target="_blank"><i class="fab fa-youtube fa-2x" aria-hidden="true"></i></a></div> -->
                     </div>
                 </div>
             </div>
