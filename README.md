@@ -1,2 +1,2 @@
-# MiniSite-Template
- Site Template for JS Projects
+# Hundo
+Counting in javascript
